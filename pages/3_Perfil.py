@@ -23,5 +23,10 @@ with st.form("my_form"):
         'phone' : phone,
         'email' : email}
 
-        url = "http://localhost:5000/add-dog"
+        url = "http://localhost:5000/add-dog/"
         response = requests.post(url, json= data)
+
+        if response.status_code == 200:
+            st.header(f'Cadastro realizado com sucesso para {name}.')
+        else:
+            st.header(f'Algum erro aconteceu no cadastro para {name}.')
